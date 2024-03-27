@@ -6,7 +6,7 @@ import { waitFor } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { openReport } from "../../src/router";
-import { report_type_chart, report_type_table } from "../../src/utils";
+import { reportTypeChart, reportTypeTable } from "../../src/utils";
 
 jest.mock("react-apexcharts", () => ({ __esModule: true, default: jest.fn() }));
 
@@ -77,11 +77,11 @@ describe("ReportPage", () => {
 
     await waitFor(async () => await userEvent.click(inputRadioTable));
     await waitFor(async () => await userEvent.click(btnOpen));
-    expect(pathResult).toEqual(openReport(report_type_table, dateFrom, dateTo));
+    expect(pathResult).toEqual(openReport(reportTypeTable, dateFrom, dateTo));
 
     await waitFor(async () => await userEvent.click(inputRadioChart));
     await waitFor(async () => await userEvent.click(btnOpen));
-    expect(pathResult).toEqual(openReport(report_type_chart, dateFrom, dateTo));
+    expect(pathResult).toEqual(openReport(reportTypeChart, dateFrom, dateTo));
 
     result.unmount();
   });
