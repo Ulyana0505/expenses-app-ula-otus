@@ -1,7 +1,7 @@
 import { RouteHandle, TableRow } from "./types";
 
-export const report_type_table = "table" as const;
-export const report_type_chart = "chart" as const;
+export const reportTypeTable = "table" as const;
+export const reportTypeChart = "chart" as const;
 
 export function getHandle(route: { handle?: unknown }) {
   return route.handle as RouteHandle;

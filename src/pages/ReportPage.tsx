@@ -4,7 +4,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useRef } from "react";
 import { openReport } from "../router";
 import { TableRow, TreeRow, UserTable } from "../types";
-import { report_type_chart, report_type_table, tableSum } from "../utils";
+import { reportTypeChart, reportTypeTable, tableSum } from "../utils";
 import { nanoid } from "nanoid";
 import Chart from "react-apexcharts";
 
@@ -22,7 +22,7 @@ function getDates(src = "") {
     l.length === 3 &&
     new Date(l[1]) instanceof Date &&
     new Date(l[2]) instanceof Date &&
-    (l[0] === report_type_table || l[0] === report_type_chart)
+    (l[0] === reportTypeTable || l[0] === reportTypeChart)
   ) {
     return { report_type: l[0], d_from: l[1], d_to: l[2] };
   }
@@ -72,8 +72,8 @@ function ViewReport() {
     const date1 = refD1.current!.valueAsDate;
     const date2 = refD2.current!.valueAsDate;
     const chart_type =
-      (refType1.current!.checked && report_type_table) ||
-      (refType2.current!.checked && report_type_chart);
+      (refType1.current!.checked && reportTypeTable) ||
+      (refType2.current!.checked && reportTypeChart);
     if (chart_type && date1 && date2) {
       navigate(
         openReport(chart_type, date1.toJSON().substring(0, 10), date2.toJSON().substring(0, 10))
@@ -90,25 +90,25 @@ function ViewReport() {
         <input
           type="radio"
           name="type"
-          id={report_type_table}
-          value={report_type_table}
-          defaultChecked={report_type ? report_type === report_type_table : void 0}
+          id={reportTypeTable}
+          value={reportTypeTable}
+          defaultChecked={report_type ? report_type === reportTypeTable : void 0}
           ref={refType1}
         />
-        <label htmlFor={report_type_table}>таблица</label>
+        <label htmlFor={reportTypeTable}>таблица</label>
         <input
           type="radio"
           name="type"
-          id={report_type_chart}
-          value={report_type_chart}
-          defaultChecked={report_type ? report_type === report_type_chart : void 0}
+          id={reportTypeChart}
+          value={reportTypeChart}
+          defaultChecked={report_type ? report_type === reportTypeChart : void 0}
           ref={refType2}
         />
-        <label htmlFor={report_type_chart}>диаграмма</label>
+        <label htmlFor={reportTypeChart}>диаграмма</label>
         <button onClick={handleOpen}>открыть</button>
       </p>
-      {report_type === report_type_table && <ViewTable rows={rows} map={map} />}
-      {report_type === report_type_chart && <ViewChart rows={rows} map={map} />}
+      {report_type === reportTypeTable && <ViewTable rows={rows} map={map} />}
+      {report_type === reportTypeChart && <ViewChart rows={rows} map={map} />}
     </>
   );
 }
