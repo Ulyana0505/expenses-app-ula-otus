@@ -15,56 +15,59 @@ export function openReport(chart_type: string, d1: string, d2: string) {
   return `/${pathReport}/${chart_type}_${d1}_${d2}`;
 }
 
-const router = createBrowserRouter([
-  {
-    path: "/",
-    Component: Layout,
-    children: [
-      {
-        index: true,
-        path: "",
-        Component: MainPage,
-        handle: { linkText: "Главная" } as RouteHandle
-      },
-      {
-        path: "about",
-        Component: AboutPage,
-        handle: { linkText: "О проекте" } as RouteHandle
-      },
-      {
-        path: "tune",
-        Component: TunePage,
-        handle: { linkText: "Настройка", protected: true } as RouteHandle
-      },
-      {
-        path: pathReport,
-        Component: ReportPage,
-        handle: { linkText: "Отчет", protected: true } as RouteHandle,
-        children: [
-          {
-            index: true,
-            path: ":url_param",
-            Component: ReportPage,
-            handle: { linkText: "Отчет", protected: true } as RouteHandle
-          }
-        ]
-      },
-      {
-        path: "login",
-        Component: LoginPage,
-        handle: { linkText: "Авторизация", login: true } as RouteHandle
-      },
-      {
-        path: "logout",
-        Component: LogoutPage,
-        handle: { linkText: "Выйти", protected: true } as RouteHandle
-      }
-    ]
-  },
-  {
-    path: "*",
-    Component: NotFoundPage
-  }
-]);
+const router = createBrowserRouter(
+  [
+    {
+      path: "/",
+      Component: Layout,
+      children: [
+        {
+          index: true,
+          path: "",
+          Component: MainPage,
+          handle: { linkText: "Главная" } as RouteHandle
+        },
+        {
+          path: "about",
+          Component: AboutPage,
+          handle: { linkText: "О проекте" } as RouteHandle
+        },
+        {
+          path: "tune",
+          Component: TunePage,
+          handle: { linkText: "Настройка", protected: true } as RouteHandle
+        },
+        {
+          path: pathReport,
+          Component: ReportPage,
+          handle: { linkText: "Отчет", protected: true } as RouteHandle,
+          children: [
+            {
+              index: true,
+              path: ":url_param",
+              Component: ReportPage,
+              handle: { linkText: "Отчет", protected: true } as RouteHandle
+            }
+          ]
+        },
+        {
+          path: "login",
+          Component: LoginPage,
+          handle: { linkText: "Авторизация", login: true } as RouteHandle
+        },
+        {
+          path: "logout",
+          Component: LogoutPage,
+          handle: { linkText: "Выйти", protected: true } as RouteHandle
+        }
+      ]
+    },
+    {
+      path: "*",
+      Component: NotFoundPage
+    }
+  ],
+  { basename: "/expenses-app-ula-otus/" }
+);
 
 export default router;
