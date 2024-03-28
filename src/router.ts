@@ -8,6 +8,7 @@ import TunePage from "./pages/TunePage";
 import ReportPage from "./pages/ReportPage";
 import NotFoundPage from "./pages/NotFoundPage";
 import LogoutPage from "./pages/LogoutPage";
+import { bool } from "./utils";
 
 const pathReport = "report";
 
@@ -67,7 +68,7 @@ const router = createBrowserRouter(
       Component: NotFoundPage
     }
   ],
-  { basename: "/expenses-app-ula-otus/" }
+  { basename: bool((window as unknown as { jest: boolean }).jest, "/", "/expenses-app-ula-otus/") }
 );
 
 export default router;
