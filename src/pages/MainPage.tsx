@@ -37,8 +37,9 @@ function MainPersonal() {
 
   function save() {
     setError("");
-    if (refInput.current!.valueAsDate) {
-      const date = refInput.current!.valueAsDate.toJSON().substring(0, 10);
+    const dateSource = refInput.current?.valueAsDate ?? "";
+    if (dateSource) {
+      const date = dateSource.toJSON().substring(0, 10);
       if (tableSum(refStruct.current)) {
         auth.dataTable = auth.dataTable.filter((r) => r.date !== date);
         auth.dataTable.push({ date, rows: refStruct.current });
