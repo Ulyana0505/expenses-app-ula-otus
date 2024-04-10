@@ -185,14 +185,14 @@ type ChartRow = { sum: number; label: string };
 function dataChart(rows: UserTable[], legend: Map<string, string>): ChartRow[] {
   const total = new Map<string, ChartRow>();
 
-  for (const r of rows) {
-    for (const rr of getFlat(r.rows, legend)) {
-      if (!rr.level) {
-        const totalRow = total.get(rr.label);
+  for (const row1 of rows) {
+    for (const row2 of getFlat(row1.rows, legend)) {
+      if (!row2.level) {
+        const totalRow = total.get(row2.label);
         if (totalRow) {
-          totalRow.sum += rr.sum;
+          totalRow.sum += row2.sum;
         } else {
-          total.set(rr.label, { sum: rr.sum, label: rr.label });
+          total.set(row2.label, { sum: row2.sum, label: row2.label });
         }
       }
     }
