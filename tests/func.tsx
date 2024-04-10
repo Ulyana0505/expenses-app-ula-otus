@@ -10,22 +10,6 @@ export async function wait(t = 0) {
 export const initialPage = "/start";
 
 export function getAppRender(Component: React.ComponentType) {
-  /*const context = { current: {} as Auth };
-
-  function App() {
-    context.current = useAuth();
-    return <Component />;
-  }
-
-  const result = render(
-    <AuthProvider>
-      <MemoryRouter basename="/" initialEntries={[initialPage]}>
-        <App />
-      </MemoryRouter>
-    </AuthProvider>
-  );
-
-  return { context, result };*/
   return render(
     <AuthProvider>
       <MemoryRouter basename="/" initialEntries={[initialPage]}>
