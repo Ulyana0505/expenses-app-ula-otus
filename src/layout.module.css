@@ -1,0 +1,15 @@
+.current {
+  text-decoration: underline;
+}
+
+.menu {
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.item {
+  display: block;
+  padding: 0;
+  margin-right: 1em;
+}
