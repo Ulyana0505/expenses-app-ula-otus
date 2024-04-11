@@ -6,6 +6,5 @@ describe("FallbackPage", () => {
   it("default", async () => {
     const result = render(<FallbackPage />);
     expect(result.container.innerHTML.includes("<div>")).toEqual(true);
-    result.unmount();
   });
 });

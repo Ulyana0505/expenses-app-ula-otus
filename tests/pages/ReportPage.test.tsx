@@ -82,7 +82,5 @@ describe("ReportPage", () => {
     await waitFor(async () => await userEvent.click(inputRadioChart));
     await waitFor(async () => await userEvent.click(btnOpen));
     expect(pathResult).toEqual(openReport(reportTypeChart, dateFrom, dateTo));
-
-    result.unmount();
   });
 });

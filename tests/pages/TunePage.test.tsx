@@ -8,10 +8,6 @@ import userEvent from "@testing-library/user-event";
 describe("TunePage", () => {
   const userName = "1";
   const userPass = "2";
-  it("default", async () => {
-    const result = getAppRender(TunePage);
-    result.unmount();
-  });
   it("with auth", async () => {
     const tree = [] as TreeRow[];
     const table = [] as UserTable[];
@@ -41,7 +37,5 @@ describe("TunePage", () => {
 
     await waitFor(async () => await userEvent.click(btnDrop));
     expect(storageLoad(userName, userPass).tree.length).toEqual(0);
-
-    result.unmount();
   });
 });

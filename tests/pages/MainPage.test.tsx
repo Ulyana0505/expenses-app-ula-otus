@@ -44,7 +44,5 @@ describe("MainPage", () => {
     expect(storageLoad(userName, userPass).table.length).toEqual(1);
     await waitFor(async () => await userEvent.click(button));
     expect(storageLoad(userName, userPass).table.length).toEqual(2);
-
-    result.unmount();
   });
 });

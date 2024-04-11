@@ -5,6 +5,5 @@ describe("NotFoundPage", () => {
   it("default", async () => {
     const result = render(<NotFoundPage />);
     expect(result.container.innerHTML.includes("<div>")).toEqual(true);
-    result.unmount();
   });
 });

@@ -28,7 +28,5 @@ describe("LoginPage", () => {
     input[1].value = userPass;
     await waitFor(async () => await userEvent.click(button));
     expect(pathResult).toEqual("/");
-
-    result.unmount();
   });
 });
